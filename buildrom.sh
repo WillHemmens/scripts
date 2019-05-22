@@ -18,15 +18,18 @@
 # review and add your changes when I can!
 sudo apt update && sudo apt upgrade -y
 # Update Distro's repository to be able to fetch and install all needed packages in next command.
-sudo apt install -y openjdk-8-jdk toilet python gnupg flex clang gcc bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip lunzip schedtool imagemagick
+sudo apt install -y autoconf automake axel bc binutils-static bison build-essential clang cmake curl \
+expat figlet flex g++ g++-multilib gawk gcc gcc-multilib git-core gnupg gperf imagemagick lib32ncurses5-dev \
+lib32z1-dev libtinfo5 libc6-dev libcap-dev libesd0-dev libwxgtk2.8-dev libexpat1-dev libgmp-dev liblz4-* \
+liblzma* libmpc-dev libmpfr-dev libncurses5-dev libsdl1.2-dev libssl-dev libtool libxml2 libxml2-utils \
+lunzip lzma* lzop maven ncftp ncurses-dev openjdk-8-jdk patch patchelf pkg-config pngcrush pngquant \
+python python-all-dev re2c schedtool squashfs-tools subversion texinfo toilet unzip w3m xsltproc zip zlib1g-dev
 # The abvove will install packages that are needed to compile most ROM's, for systems above Ubuntu 14.04.
 # If you find that during your compile of a ROM that it errors to require another package then simply:
 # '$ sudo apt install <saidPackageName>' and let me know so I can add it for future users.
 # Once you have installed these building packages you can disable the command, as now you only need to update or upgrade.
-mkdir ~/bin
-PATH=~/bin:$PATH
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-chmod a+x ~/bin/repo
+sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://github.com/akhilnarang/repo/raw/master/repo
+sudo chmod a+x /usr/local/bin/repo
 # The above will install the repo tool which will allow you to download and then stay in sync with a ROM's Git source, if it is
 # updated at remote.
 # repo is a python wrapper for git.
