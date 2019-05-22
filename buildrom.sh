@@ -16,7 +16,13 @@
 # Lastly, this is open so don't hesitate to share your ideas too! Telling me how this script could be improved could also help
 # future users, so please do let me know on Telegram, @inivisibazinga2, or do a 'Pull Request' (PR) on GitHub and I will 
 # review and add your changes when I can!
+touch .buildrombashed
+if [ ! -e ".gcloudvncbashed" ]; then
+# If user has bashed the './gcloudvnc.sh' script, prior to this one, then there is no need to spend time checking for
+# updates (to then upgrade) as it was already done. A placeholder file was created in the './gcloudvnc.sh' script
+# called 'updated' to check for this.
 sudo apt update && sudo apt upgrade -y
+fi
 # Update Distro's repository to be able to fetch and install all needed packages in next command.
 sudo apt install -y autoconf automake axel bc binutils-static bison build-essential clang cmake curl \
 expat figlet flex g++ g++-multilib gawk gcc gcc-multilib git-core gnupg gperf imagemagick lib32ncurses5-dev \
